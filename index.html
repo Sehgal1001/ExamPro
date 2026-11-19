@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A browser-based online MCQ examination system">
+  <title>ExamPro | Online Examination</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">E</span> ExamPro</a>
+    <div class="topbar-right"><span class="topbar-label">ONLINE EXAMINATION SYSTEM</span><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme">☀ Light</button></div>
+  </header>
+
+  <main class="container">
+    <section id="welcome-screen" class="panel welcome-screen">
+      <div class="welcome-icon">✦</div>
+      <p class="eyebrow">WELCOME TO EXAMPRO</p>
+      <h1>Test your knowledge.<br><span>Track your progress.</span></h1>
+      <p class="intro">Take a short multiple-choice test, manage your time, and review your performance instantly.</p>
+      <div class="exam-info">
+        <div><strong id="question-count">10</strong><span>Questions</span></div>
+        <div><strong>10 min</strong><span>Duration</span></div>
+        <div><strong>1 mark</strong><span>Each question</span></div>
+      </div>
+      <label class="name-label" for="subject-select">Choose your subject</label>
+      <select id="subject-select" class="subject-select">
+        <option value="Mathematics">Mathematics</option><option value="Physics">Physics</option><option value="Chemistry">Chemistry</option><option value="Biology">Biology</option><option value="Computer Science">Computer Science</option><option value="Web Development">Web Development</option><option value="HTML & CSS">HTML &amp; CSS</option><option value="JavaScript">JavaScript</option><option value="General Knowledge">General Knowledge</option>
+      </select>
+      <label class="name-label" for="student-name">Your name</label>
+      <input id="student-name" type="text" maxlength="40" placeholder="Enter your name">
+      <button id="start-btn" class="primary-btn">Start examination <span>→</span></button>
+      <p class="small-note">The timer starts as soon as you begin. You can submit at any time.</p>
+    </section>
+
+    <section id="exam-screen" class="exam-layout hidden">
+      <div class="exam-main panel">
+        <div class="exam-heading">
+          <div><p class="eyebrow"><span id="exam-subject-label">MATHEMATICS</span></p><h2>Online Assessment</h2></div>
+          <div class="timer" id="timer" aria-live="polite">10:00</div>
+        </div>
+        <div class="progress-meta"><span id="progress-text">Question 1 of 10</span><span id="answered-text">0 answered</span></div>
+        <div class="progress-track"><div id="progress-bar"></div></div>
+        <div class="question-area">
+          <div class="question-top"><span id="question-number" class="question-tag">QUESTION 01</span><button id="review-btn" class="text-btn">☆ Mark for review</button></div>
+          <h3 id="question-text"></h3>
+          <div id="options" class="options"></div>
+        </div>
+        <div class="exam-controls">
+          <button id="prev-btn" class="secondary-btn">← Previous</button>
+          <button id="next-btn" class="primary-btn">Next question →</button>
+        </div>
+      </div>
+
+      <aside class="panel question-sidebar">
+        <h3>Question palette</h3>
+        <p class="sidebar-help">Select a number to jump to that question.</p>
+        <div id="question-palette" class="palette"></div>
+        <div class="legend">
+          <span><i class="dot answered"></i> Answered</span>
+          <span><i class="dot review"></i> Review</span>
+          <span><i class="dot"></i> Not answered</span>
+        </div>
+        <div class="sidebar-bottom">
+          <p><strong id="sidebar-answered">0</strong> of <span id="sidebar-total">10</span> answered</p>
+          <button id="submit-btn" class="submit-btn">Submit exam</button>
+        </div>
+      </aside>
+    </section>
+
+    <section id="result-screen" class="panel result-screen hidden">
+      <div class="result-icon">✓</div>
+      <p class="eyebrow">EXAM COMPLETED</p>
+      <h1 id="result-heading">Well done!</h1>
+      <p class="intro" id="result-message">Here is your performance summary.</p>
+      <div class="score-card">
+        <div class="score-ring" id="score-ring"><div><strong id="score">0/10</strong><span>Your score</span></div></div>
+        <div class="score-details">
+          <div><span>Percentage</span><strong id="percentage">0%</strong></div>
+          <div><span>Grade</span><strong id="grade">—</strong></div>
+          <div><span>Time used</span><strong id="time-used">—</strong></div>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat correct"><strong id="correct-count">0</strong><span>Correct</span></div>
+        <div class="stat incorrect"><strong id="incorrect-count">0</strong><span>Incorrect</span></div>
+        <div class="stat unanswered"><strong id="unanswered-count">0</strong><span>Unanswered</span></div>
+      </div>
+      <div class="result-actions">
+        <button id="review-results-btn" class="secondary-btn">Review answers</button>
+        <button id="restart-btn" class="primary-btn">Try again ↻</button>
+      </div>
+      <p id="saved-note" class="small-note"></p>
+    </section>
+
+    <section id="review-screen" class="panel hidden">
+      <div class="review-heading"><div><p class="eyebrow">ANSWER KEY</p><h2>Review your answers</h2></div><button id="back-results-btn" class="secondary-btn">← Back to results</button></div>
+      <div id="review-list"></div>
+    </section>
+  </main>
+  <footer>ExamPro · Practice, learn, improve.</footer>
+  <script src="js/script.js" defer></script>
+</body>
+</html>
